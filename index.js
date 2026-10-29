@@ -55,8 +55,8 @@ let server = http.createServer(
 
 
 // class - 02 
-const express = require('express')
-const app = express()
+const express = require('express') // import k liyye require ka use krtay hain
+const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
 const port = 3000
 app.use(express.json())
 app.get('/', (req, res) => {
