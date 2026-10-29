@@ -59,7 +59,7 @@ const express = require('express') // import k liyye require ka use krtay hain
 const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
 const port = 3000
 app.use(express.json())
-app.get('/', (req, res) => {
+app.get('/', (req, res) => { // data ko show krne liye hota ha data hamari screen ma show ma ho 
     res.send('Hello World!')
 })
 
