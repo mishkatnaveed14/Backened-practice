@@ -1,4 +1,4 @@
-// =========node js working start===========
+// ========= node js working start ===========
 // let {first,greet} = require('./app')
 // console.log(first);
 // greet(12344)
@@ -53,7 +53,7 @@ fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
 //     console.log("server is running on port 8000")
 // })
 
-// ======================node js work end 
+// ======================node js work end ================
 
 // class - 02 
 const express = require('express') // import k liyye require ka use krtay hain
@@ -63,7 +63,6 @@ app.use(express.json())
 // app.get('/', (req, res) => { // data ko show krne liye hota ha data hamari screen ma show ma ho 
 //     res.send('Hello World!')
 // })
-
 // app.get('/about', (req, res) => {
 //     res.send({ message: 'Hello World! about page' })
 // })
