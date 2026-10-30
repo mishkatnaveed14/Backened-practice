@@ -90,7 +90,10 @@ app.use(express.static(public_directory_path))
 // -------------template engine EJS---------------------
 app.set('view engine','ejs')
 app.get('', (req,res)=>{
-res.render('index',{})
+res.render('/',{})
+})
+app.get('/*xyz', (req,res)=>{
+res.render('/',{})
 })
 
 // app.get('/profile', (req,res)=>{
