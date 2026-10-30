@@ -68,7 +68,7 @@ app.use(express.json())
 //     res.send({ message: 'Hello World! about page' })
 // })
 let public_directory_path =  path.join(__dirname,'public')
-
+app.use(express.static(public_directory_path))
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
 })
