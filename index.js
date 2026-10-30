@@ -93,7 +93,7 @@ app.get('', (req,res)=>{
 res.render('/',{})
 })
 app.get('/*xyz', (req,res)=>{
-res.render('/',{})
+res.send(`<h1>404 page not found</h1>`)
 })
 
 // app.get('/profile', (req,res)=>{

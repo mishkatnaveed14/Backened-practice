@@ -12,7 +12,9 @@
     </ul>
     <h3>SKILLS</h3>
     <ul>
-      
+        <% user.skills.forEach((skill) => { %>
+            <li><%= skill %></li>
+        <% }); %>
     </ul>
 </body>
 </html>
