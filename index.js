@@ -71,6 +71,15 @@ app.use(express.static(public_directory_path))
 app.get('',(req,res)=>{
 res.sendFile(`${public_directory_path}/html/index.html`)
 })
+app.get('/about',(req,res)=>{
+res.sendFile(`${public_directory_path}/html/about.html`)
+})
+app.get('/css',(req,res)=>{
+res.sendFile(`${public_directory_path}/css/index.css`)
+})
+// app.get('/images',(req,res)=>{
+// res.sendFile(`${public_directory_path}/css/index.css`)
+// })
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
 })
