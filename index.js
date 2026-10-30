@@ -68,6 +68,9 @@ app.use(express.json())
 // })
 let public_directory_path =  path.join(__dirname,'public')
 app.use(express.static(public_directory_path))
+app.get('',(req,res)=>{
+res.sendFile(`${public_directory_path}/html/index.html`)
+})
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
 })
