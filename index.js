@@ -1,3 +1,4 @@
+// =========node js working start===========
 // let {first,greet} = require('./app')
 // console.log(first);
 // greet(12344)
@@ -6,8 +7,8 @@
 
 
 // 2 Modules directory name or file name  Global
-console.log("========", __dirname);  // ye bs folder tk ka path deta ha 
-console.log("========", __filename); // ye file tk ka path btata ha 
+// console.log("========", __dirname);  // ye bs folder tk ka path deta ha 
+// console.log("========", __filename); // ye file tk ka path btata ha 
 // CORE modules NON global FS
 // FS Module file system (Non global) jis file ma chahiye waha se import krna padega 
 // WRITE FIles
@@ -39,33 +40,35 @@ fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
 // http module
 // SERVER START
 
-let http = require('http')
+// let http = require('http')
 
-let server = http.createServer(
-    (req, res) => {
-        res.write('Server is running 1!')
-        res.write(`\n[{id:1,name:"ali"},{id:2,name:"ahmed"}]`)
-        res.end()
-    }
+// let server = http.createServer(
+//     (req, res) => {
+//         res.write('Server is running 1!')
+//         res.write(`\n[{id:1,name:"ali"},{id:2,name:"ahmed"}]`)
+//         res.end()
+//     }
 
-).listen(8000, () => {
-    console.log("server is running on port 8000")
-})
+// ).listen(8000, () => {
+//     console.log("server is running on port 8000")
+// })
 
-
+// ======================node js work end 
 
 // class - 02 
 const express = require('express') // import k liyye require ka use krtay hain
 const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
 const port = 3000
 app.use(express.json())
-app.get('/', (req, res) => { // data ko show krne liye hota ha data hamari screen ma show ma ho 
-    res.send('Hello World!')
-})
+// app.get('/', (req, res) => { // data ko show krne liye hota ha data hamari screen ma show ma ho 
+//     res.send('Hello World!')
+// })
 
-app.get('/about', (req, res) => {
-    res.send({ message: 'Hello World!' })
-})
+// app.get('/about', (req, res) => {
+//     res.send({ message: 'Hello World! about page' })
+// })
+let public_directory_path =  path.join(__dirname,'public')
+
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
 })
