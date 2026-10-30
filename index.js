@@ -88,19 +88,22 @@ app.use(express.static(public_directory_path))
 
 
 // -------------template engine EJS---------------------
-app.set('veiw engine','ejs')
+app.set('view engine','ejs')
 app.get('', (req,res)=>{
 res.render('index',{})
 })
 
-app.get('/profile', (req,res)=>{
-// db query
-let user = {
-name:"mishkat",
-address: "garden"
-}
-res.render('profile',{user})
-})
+// app.get('/profile', (req,res)=>{
+// // db query
+// let user = {
+// name:"mishkat",
+// address: "garden",
+// experience : {
+
+// }
+// }
+// res.render('profile',{user})
+// })
 
 // -------------template engine EJS and ---------------------
 app.listen(port, () => {
