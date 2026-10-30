@@ -59,27 +59,50 @@ fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
 const express = require('express') // import k liyye require ka use krtay hain
 const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
 const port = 3000
-app.use(express.json())
+let public_directory_path =  path.join(__dirname,'public')
+app.use(express.static(public_directory_path))
+// app.use(express.json())
 // app.get('/', (req, res) => { // data ko show krne liye hota ha data hamari screen ma show ma ho 
 //     res.send('Hello World!')
 // })
 // app.get('/about', (req, res) => {
 //     res.send({ message: 'Hello World! about page' })
 // })
-let public_directory_path =  path.join(__dirname,'public')
-app.use(express.static(public_directory_path))
-app.get('',(req,res)=>{
-res.sendFile(`${public_directory_path}/html/index.html`)
-})
-app.get('/about',(req,res)=>{
-res.sendFile(`${public_directory_path}/html/about.html`)
-})
-app.get('/css',(req,res)=>{
-res.sendFile(`${public_directory_path}/css/index.css`)
-})
+// let public_directory_path =  path.join(__dirname,'public')
+// app.use(express.static(public_directory_path))
+// app.get('',(req,res)=>{
+// res.sendFile(`${public_directory_path}/html/index.html`)
+// })
+// app.get('/about',(req,res)=>{
+// res.sendFile(`${public_directory_path}/html/about.html`)
+// })
+// app.get('/css',(req,res)=>{
+// res.sendFile(`${public_directory_path}/css/index.css`)
+// })
 // app.get('/images',(req,res)=>{
 // res.sendFile(`${public_directory_path}/css/index.css`)
 // })
+
+
+
+
+
+// -------------template engine EJS---------------------
+app.set('veiw engine','ejs')
+app.get('', (req,res)=>{
+res.render('index',{})
+})
+
+app.get('/profile', (req,res)=>{
+// db query
+let user = {
+name:"mishkat",
+address: "garden"
+}
+res.render('profile',{user})
+})
+
+// -------------template engine EJS and ---------------------
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
 })
