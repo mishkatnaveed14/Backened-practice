@@ -109,6 +109,21 @@ res.send(`<h1>404 page not found</h1>`)
 // })
 
 // -------------template engine EJS and ---------------------
+//============== REST FULL API start====================
+
+
+
+
+
+//============== REST FULL API end ====================
+
+
+
+
+
+
+
+
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
 })
