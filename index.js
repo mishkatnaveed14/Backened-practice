@@ -59,8 +59,8 @@ fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
 const express = require('express') // import k liyye require ka use krtay hain
 const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
 const port = 3000
-let public_directory_path =  path.join(__dirname,'public')
-app.use(express.static(public_directory_path))
+// let public_directory_path =  path.join(__dirname,'public')
+// app.use(express.static(public_directory_path))
 // app.use(express.json())
 // app.get('/', (req, res) => { // data ko show krne liye hota ha data hamari screen ma show ma ho 
 //     res.send('Hello World!')
