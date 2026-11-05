@@ -57,6 +57,7 @@ fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
 
 // class - 02 
 const express = require('express') // import k liyye require ka use krtay hain
+const agecheck = require('./middleware')
 const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
 const port = 3000
 // let public_directory_path =  path.join(__dirname,'public')
@@ -117,12 +118,26 @@ res.send(`<h1>404 page not found</h1>`)
 
 //============== REST FULL API end ====================
 
+// app.get('/api/users' , (req,res)=>{
+// res.status(200).json({name:"mishkat"})
+// })
 
+// app.get('/api/users/:id' , (req,res)=>{
+// res.status(204).json({name:"mishkat"})
+// })
+// app.post('/api/users' , (req,res)=>{
+// res.status(201).json({name:"mishkat"})
+// })
+// chain routes
+// app.route('/api/users/:id')
+// .get()
+// .push()
 
-
-
-
-
+///////////middle ware
+app.use(agecheck)
+app.get('',(req,res)=>{
+res.send("pass")
+})
 
 app.listen(port, () => {
     console.log(`server is running on ${port}`)
