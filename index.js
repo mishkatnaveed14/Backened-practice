@@ -28,10 +28,10 @@
 // remove homework
 
 // Core modulle non global path
-let fs = require('fs')
-let path = require('path')
-let img = path.join(__dirname, 'images')
-fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
+// let fs = require('fs')
+// let path = require('path')
+// let img = path.join(__dirname, 'images')
+// fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
 
 // for (let i = 0; 1 <= 5, i++) {
 //     fs.writeFile(`${img}/file${i}.js`, `console.log("file${i}")`, (err, data) => { })
@@ -56,10 +56,10 @@ fs.writeFile(`${img}/cat.js`, `'console.log("hii")'`, (err, data) => { })
 // ======================node js work end ================
 
 // class - 02 
-const express = require('express') // import k liyye require ka use krtay hain
-const agecheck = require('./middleware')
-const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
-const port = 3000
+// const express = require('express') // import k liyye require ka use krtay hain
+// const agecheck = require('./middleware')
+// const app = express() // jb bhi express chaiye usay app ma save krna zroori ha 
+// const port = 3000
 // let public_directory_path =  path.join(__dirname,'public')
 // app.use(express.static(public_directory_path))
 // app.use(express.json())
@@ -89,13 +89,13 @@ const port = 3000
 
 
 // -------------template engine EJS---------------------
-app.set('view engine','ejs')
-app.get('', (req,res)=>{
-res.render('/',{})
-})
-app.get('/*xyz', (req,res)=>{
-res.send(`<h1>404 page not found</h1>`)
-})
+// app.set('view engine','ejs')
+// app.get('', (req,res)=>{
+// res.render('/',{})
+// })
+// app.get('/*xyz', (req,res)=>{
+// res.send(`<h1>404 page not found</h1>`)
+// })
 
 // app.get('/profile', (req,res)=>{
 // // db query
@@ -134,11 +134,47 @@ res.send(`<h1>404 page not found</h1>`)
 // .push()
 
 ///////////middle ware
-app.use(agecheck)
-app.get('',(req,res)=>{
-res.send("pass")
-})
+// app.use(agecheck)
+// app.get('',(req,res)=>{
+// res.send("pass")
+// })
 
-app.listen(port, () => {
-    console.log(`server is running on ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`server is running on ${port}`)
+// })
+
+
+const http = require("http");
+// const url = "http://localhost:3000";
+
+http.createServer((req, res) => {
+
+  const url = new URL(req.url, "http://localhost:3000");
+  const a = Number(url.searchParms.get("a"));
+  const b = Number(url.searchParms.get("b"));
+  const op = url.searchParms.get("op");
+  let result = 0;
+  if (op === "+") {
+    result = a + b;
+  } else if (op === "-") {
+    result = a - b;
+  } else if (op === "*") {
+    result = a * b;
+  } else if (op === "/") {
+    result = a / b;
+  }else if (op === "%") {
+    result = a % b;
+  }
+res.writeHead(200, { "Content-Type": "text/html" });
+res.end(`
+    <h1> Node js calc </h1>
+    <form>
+    <input name="a" placeholder="First num" required >
+    <input name="op" placeholder="+ - / % *" required >
+    <input name="b" placeholder="second num" required >
+    <br><br>
+    <button>calculate</button>
+    </form>
+    <h2>Result : ${result}</h2>
+    `)
+}).listen(3000)
