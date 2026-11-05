@@ -19,6 +19,6 @@ http.createserver((req, res) => {
   }else if (op === "%") {
     result = a % b;
   }
-
+res.writeHead(200, { "Content-Type": "text/html" });
 
 });
